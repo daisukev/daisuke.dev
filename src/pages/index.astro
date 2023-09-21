@@ -41,8 +41,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         </div>
       </div>
       <div class="next">
-        <a href="#about-me">About Me</a>
-      </div>
+        <a href="#about-me" class="">About Me
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path></svg>
+</a>
+        </div>
     </section>
     <section id="about-me">
       <h3>About Me</h3>
@@ -50,6 +52,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     </section>
     <Footer />
     <style>
+    a{
+    text-decoration: none;
+    }
       section {
         height: 100dvh;
       }
@@ -76,8 +81,24 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
         /* background-blend-mode: multiply; */
       }
       .next {
+        width: 100;
         align-self: end;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center; 
+        font-size: 1.5rem;
       }
+    .next a{
+    display: grid;
+    place-content: center;
+    }
+     .next a svg{
+    justify-self: center;
+    }
+    .next svg{
+    display: block;
+    }
       h4 {
         font-weight: 300;
         font-size: clamp(1.562rem, 3vw, 4rem);
@@ -88,7 +109,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       .content > * {
         margin-block: 0.2rem;
       }
-      .content svg {
+      svg {
         width: clamp(32px, 5vw, 50px);
         height: clamp(32px, 5vw, 50px);
       }
