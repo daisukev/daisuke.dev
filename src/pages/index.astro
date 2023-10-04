@@ -7,8 +7,9 @@ import CardLink from "../components/CardLink.astro";
 import Subtitle from "../components/Subtitle.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import novelNexusThumbnail from "../assets/novel-nexus/book-view@0.5x.jpg";
-import scrumptiousThumbnail from "../assets/scrumptious-recipes/scrumptious-main.jpg";
-import carThumbnail from "../assets/car-dealership/car-dealership.jpg";
+import scrumptiousThumbnail from "../assets/scrumptious-recipes/scrumptious-main-sm.jpg";
+import carThumbnail from "../assets/car-dealership/car-dealership@0.5x.jpg";
+import portrait from "../assets/me.jpg";
 import { Image } from "astro:assets";
 ---
 
@@ -17,7 +18,10 @@ import { Image } from "astro:assets";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
+  <body id="#top">
+    <div class="btn-container">
+      <a href="#top" class="top-button">Top ↑</a>
+    </div>
     <Header title={SITE_TITLE} />
     <div>
       <section class="hero">
@@ -26,11 +30,12 @@ import { Image } from "astro:assets";
         <div></div>
         <div class="content">
           <h2>Josh Daisuke Vasquez</h2>
-          <h4>Web Developer</h4>
+          <h3>Web Developer</h3>
           <div>
             <a
               href="https://www.linkedin.com/in/joshuadvasquez/"
               target="_blank"
+              aria-label="Visit Josh's LinkedIn Profile"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 ><path
@@ -39,20 +44,36 @@ import { Image } from "astro:assets";
               ></a
             >
 
-            <a href="https://www.gitlab.com/least/" target="_blank">
+            <a
+              href="https://www.gitlab.com/least/"
+              target="_blank"
+              aria-label="Check out Josh's Gitlab"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 ><path
                   d="M21.6634 9.98693L21.6354 9.91531L18.9164 2.82092C18.8612 2.68178 18.7634 2.56365 18.6371 2.48339C18.5098 2.40304 18.3607 2.36419 18.2104 2.37219C18.0601 2.38019 17.9159 2.43464 17.7979 2.52804C17.6809 2.62181 17.5966 2.75012 17.5569 2.89466L15.7187 8.52049H8.28157L6.44336 2.89466C6.40366 2.75012 6.31934 2.62181 6.20241 2.52804C6.08487 2.43402 5.94083 2.37915 5.79052 2.37114C5.64021 2.36313 5.49116 2.40238 5.36429 2.48339C5.2374 2.56332 5.13921 2.68153 5.08388 2.82092L2.36183 9.92462L2.33379 9.99524C1.94304 11.0184 1.895 12.1407 2.19691 13.1934C2.49882 14.2462 3.13436 15.1725 4.00794 15.833L4.01832 15.8402L4.04221 15.8589L8.18917 18.9632L10.2393 20.5159L11.4856 21.4599C11.6319 21.5705 11.8104 21.6304 11.9939 21.6304C12.1774 21.6304 12.3559 21.5705 12.5023 21.4599L13.7486 20.5159L15.7997 18.9632L19.9706 15.8402L19.9819 15.8319C20.8585 15.1721 21.4966 14.245 21.7999 13.1906C22.1033 12.1362 22.0553 11.0117 21.6634 9.98693Z"
                 ></path></svg
               ></a
             >
-            <a href="https://www.github.com/daisukev/" target="_blank">
+            <a
+              href="https://www.github.com/daisukev/"
+              target="_blank"
+              aria-label="Check out Josh's Github"
+            >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                 ><path
                   d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
                 ></path></svg
               ></a
             >
+
+            <a href="mailto:daisuke@daisuke.dev" aria-label="Email Josh">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                ><path
+                  d="M3 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3ZM12.0606 11.6829L5.64722 6.2377L4.35278 7.7623L12.0731 14.3171L19.6544 7.75616L18.3456 6.24384L12.0606 11.6829Z"
+                ></path></svg
+              >
+            </a>
           </div>
         </div>
         <div class="next">
@@ -67,89 +88,141 @@ import { Image } from "astro:assets";
         </div>
       </section>
       <section id="projects">
-        <h3>Projects</h3>
-        <div class="card-container">
-          <div class="card">
-            <!-- <img src="novel-nexus/book-view@0.5x.jpg" alt="Novel Nexus" /> -->
-            <div class="card-img">
-              <Image src={novelNexusThumbnail} alt="Novel Nexus" />
-            </div>
-            <div class="card-content">
-              <h4>Novel Nexus</h4>
-              <Subtitle>Novel Sharing Website</Subtitle>
-              <div class="tags">
-                <CardTag>React</CardTag>
-                <CardTag>FastAPI</CardTag>
-                <CardTag>PostgreSQL</CardTag>
+        <div class="project-container">
+          <h3>Projects</h3>
+          <div class="card-container">
+            <div class="card">
+              <div class="card-img">
+                <Image src={novelNexusThumbnail} alt="Novel Nexus" />
               </div>
-              <CardLink href="https://novel-nexus.gitlab.io/novel-nexus">
-                Novel Nexus
-              </CardLink>
+              <div class="card-content">
+                <h4>Novel Nexus</h4>
+                <Subtitle>Novel Sharing Website</Subtitle>
+                <div class="tags">
+                  <CardTag>React</CardTag>
+                  <CardTag>FastAPI</CardTag>
+                  <CardTag>PostgreSQL</CardTag>
+                </div>
+                <p>
+                  Novel Nexus is a full stack application where users can read
+                  and share their work in the literary space. It utilizes
+                  FastAPI and Postgres for the backend and React for the
+                  frontend.
+                </p>
+                <CardLink
+                  href="https://novel-nexus.gitlab.io/novel-nexus"
+                  target="_blank"
+                  color="secondary"
+                >
+                  Live
+                </CardLink>
+                <CardLink
+                  href="https://gitlab.com/novel-nexus/novel-nexus"
+                  target="_blank"
+                  color="secondary"
+                >
+                  Code
+                </CardLink>
+              </div>
             </div>
-            <div class="card-sidebar">hello</div>
-          </div>
-          <div class="card">
-            <Image src={scrumptiousThumbnail} alt="Scrumptious Recipes" />
-            <div class="card-content">
-              <h4>Scrumptious Recipes</h4>
+            <div class="card">
+              <div class="card-img">
+                <Image src={scrumptiousThumbnail} alt="Scrumptious Recipes" />
+              </div>
+              <div class="card-content">
+                <h4>Scrumptious Recipes</h4>
+                <Subtitle>Recipe Website</Subtitle>
 
-              <div class="tags">
-                <CardTag>Django</CardTag>
-                <CardTag>HTML</CardTag>
-                <CardTag>CSS</CardTag>
-                <CardTag>Javascript</CardTag>
+                <div class="tags">
+                  <CardTag>Django</CardTag>
+                  <CardTag>HTML</CardTag>
+                  <CardTag>CSS</CardTag>
+                  <CardTag>Javascript</CardTag>
+                </div>
+
+                <p>
+                  Scrumptious Recipes is a website where users can create,
+                  share, and rate each other's recipes. It uses Django for the
+                  backend with Django templating, CSS, and vanilla Javascript to
+                  power the frontend.
+                </p>
+                <CardLink
+                  href="https://gitlab.com/least/scrumptious-recipes"
+                  target="_blank"
+                  color="secondary"
+                >
+                  Code
+                </CardLink>
+              </div>
+            </div>
+            <div class="card">
+              <Image src={carThumbnail} alt="Car Dealership" />
+              <div class="card-content">
+                <h4>Car Dealership</h4>
+                <Subtitle>Car Dealership Management</Subtitle>
+                <div class="tags">
+                  <CardTag>Django</CardTag>
+                  <CardTag>HTML</CardTag>
+                  <CardTag>CSS</CardTag>
+                  <CardTag>React</CardTag>
+                  <CardTag>Bootstrap</CardTag>
+                </div>
+                <p>
+                  This website provides tools needed for managing a car
+                  dealership. It allows users to create and track service
+                  appointments, manage employees, and handle sales.
+                </p>
+
+                <CardLink
+                  href="https://gitlab.com/least/car-dealership"
+                  target="_blank"
+                  color="secondary"
+                >
+                  Code
+                </CardLink>
               </div>
             </div>
           </div>
-          <div class="card">
-            <Image src={carThumbnail} alt="Car Dealership" />
-            <div class="card-content">
-              <h4>Car Dealership</h4>
-            </div>
+          <div class="next">
+            <a href="#about-me" class=""
+              >About Me
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                ><path
+                  d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
+                ></path></svg
+              >
+            </a>
           </div>
-        </div>
-        <div class="next">
-          <a href="#about-me" class=""
-            >About Me
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-              ><path
-                d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
-              ></path></svg
-            >
-          </a>
         </div>
       </section>
     </div>
     <section id="about-me">
       <div class="about">
         <h3>About Me</h3>
-        <img src="portrait.jpg" alt="avatar" />
+        <div class="img-container">
+          <Image src={portrait} alt="avatar" />
+        </div>
 
-        <p>
-          Lorem ipsum dolor sit amet, officia excepteur ex fugiat reprehenderit
-          enim labore culpa sint ad nisi Lorem pariatur mollit ex esse
-          exercitation amet. Nisi anim cupidatat excepteur officia.
-          Reprehenderit nostrud nostrud ipsum Lorem est aliquip amet voluptate
-          voluptate dolor minim nulla est proident. Nostrud officia pariatur ut
-          officia. Sit irure elit esse ea nulla sunt ex occaecat reprehenderit
-          commodo officia dolor Lorem duis laboris cupidatat officia voluptate.
-          Culpa proident adipisicing id nulla nisi laboris ex in Lorem sunt duis
-          officia eiusmod. Aliqua reprehenderit commodo ex non excepteur duis
-          sunt velit enim. Voluptate laboris sint cupidatat ullamco ut ea
-          consectetur et est culpa et culpa duis.
-        </p>
-        <div class="next">
-          <a href="#about-me" class=""
-            >About Me
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-              ><path
-                d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"
-              ></path></svg
-            >
-          </a>
+        <div class="about-content">
+          <p>
+            Hi, I’m Josh, a Full Stack Developer based in Alexandria, VA. I
+            built my first website as a middle schooler and have been building
+            websites as a hobby ever since. More recently, I decided to take my
+            skills to the next level by attending Hack Reactor’s Advanced
+            Software Engineering course to further refine my skills in various
+            web technologies.
+          </p>
+          <p>
+            When I’m not coding, you can find me playing my guitar. Music has
+            always been an important part of my life and playing puts my mind in
+            a mode of thinking that often leads to I'm excited to bring my
+            unique blend of technical expertise, military discipline, and
+            creative spirit to any project or team.
+          </p>
         </div>
       </div>
     </section>
+
     <Footer />
     <style>
       img {
@@ -162,6 +235,10 @@ import { Image } from "astro:assets";
         /* box-shadow: clamp(8px, 1vw, 15px) clamp(8px, 1vw, 15px) 0 0 */
         /*   rgba(140, 174, 182, 0.25); */
         /* margin-block: 0.5rem; */
+      }
+      h3 {
+        margin-top: 1em;
+        margin-bottom: 0.5em;
       }
       a {
         text-decoration: none;
@@ -184,13 +261,14 @@ import { Image } from "astro:assets";
         grid-template-rows: 1fr 1fr 1fr;
         --circle-size: clamp(200px, 35vw, 750px);
         --blur: clamp(30px, calc(10px + 2vw), 120px);
-        overflow: hidden;
+        /* overflow: hidden; */
         isolation: isolate;
       }
       .content h2 {
         font-size: clamp(3.062rem, 6vw, 8rem);
       }
       .next {
+        margin-top: 1rem;
         align-self: end;
         display: flex;
         flex-direction: column;
@@ -217,9 +295,9 @@ import { Image } from "astro:assets";
       .next svg {
         display: block;
       }
-      h4 {
+      .content h3 {
         font-weight: 400;
-        font-size: clamp(1.25rem, 2vw, 1.75rem);
+        font-size: clamp(1.25rem, 3vw, 2rem);
         /* margin-block: 0.5rem; */
       }
       .content {
@@ -253,10 +331,29 @@ import { Image } from "astro:assets";
 
       #projects {
         display: grid;
-        grid-template-rows: auto 1fr auto;
         padding: clamp(0.85rem, 2vw, 2rem);
         margin: 0 auto;
+        position: relative;
+      }
+      #projects > * {
+        z-index: 2;
+      }
+      #projects::after {
+        content: "";
+        inset: 0;
+        z-index: 1;
+        position: absolute;
+        background-image: url("/grain.svg");
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .project-container {
+        display: grid;
+        margin: 0 auto;
         max-width: 1450px;
+      }
+      .project-container h3 {
+        align-self: end;
       }
 
       #about-me {
@@ -282,9 +379,16 @@ import { Image } from "astro:assets";
 
       .about {
         display: grid;
-        padding: clamp(0.5rem, 1vw, 2rem);
+        padding: clamp(0.75rem, 1vw, 2rem);
+      }
+      .about-content {
         max-width: 60ch;
       }
+      .about h3 {
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+      }
+
       .color-red {
         inset: 22% 43%;
         position: absolute;
@@ -308,49 +412,56 @@ import { Image } from "astro:assets";
       }
 
       .top-button {
-        z-index: 4;
-        position: sticky;
-        bottom: 4rem;
         text-decoration: none;
         padding: 10px;
-        font-family: sans-serif;
         color: #fff;
-        background: #000;
-        border-radius: 100px;
+        padding: 0.5em 1em;
+        background: var(--clr-neutral-dark);
+        box-shadow: 4px 4px 0 0 rgba(140, 174, 182, 0.45);
       }
       .btn-container {
         display: flex;
         justify-content: flex-end;
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 999;
+
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
       }
       .card-container {
         margin-top: 1rem;
         display: grid;
         place-content: center;
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
 
         gap: 3rem;
       }
       .card {
         /* overflow: hidden; */
         display: grid;
-        background: var(--clr-neutral-light);
-        border: 2px solid var(--clr-neutral-dark);
-        box-shadow: clamp(8px, 1vw, 15px) clamp(8px, 1vw, 15px) 0 0
-          rgba(140, 174, 182, 0.85);
+        /* background: var(--clr-neutral-light); */
+        /* border: 2px solid var(--clr-neutral-dark); */
+        /* box-shadow: clamp(8px, 1vw, 15px) clamp(8px, 1vw, 15px) 0 0 */
+        /*   rgba(140, 174, 182, 0.85); */
         grid-template-columns: 1fr;
         grid-template-areas:
           "image"
-          "content"
-          "sidebar";
+          "content";
         /* aspect-ratio: 9/10; */
       }
       .card-img {
         grid-area: image;
+        overflow: hidden;
       }
       .card img {
         width: 100%;
         border-bottom: 1px solid var(--clr-neutral-dark);
       }
       .card-sidebar {
+        display: none;
         display: flex;
         background: var(--clr-neutral-dark);
         color: var(--clr-neutral-light);
@@ -362,24 +473,81 @@ import { Image } from "astro:assets";
       }
       .tags {
         display: flex;
+        flex-wrap: wrap;
         gap: 0.75rem;
         margin-block: 0.5rem;
       }
 
+      .contact-me {
+        padding: clamp(0.85rem, 2vw, 2rem);
+      }
+
       @media (min-width: 768px) {
         .card {
-          grid-template-areas:
-            "image sidebar"
-            "content sidebar";
-          grid-template-columns: 1fr 60px;
+          grid-template-columns: 1fr 1fr;
+          grid-template-areas: "content image";
+        }
+        .card:nth-of-type(1) {
+          grid-area: 1 / span 2;
+        }
+        .card:nth-of-type(2) {
+          grid-area: 2 / 1 / span 1 / span 2;
+        }
+        .card:nth-of-type(3) {
+          grid-area: 3 / 1 / span 1 / span 2;
         }
         .card-container {
-          /* grid-auto-flow: column; */
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .about {
+          grid-template-columns: 2fr 4fr;
+          gap: 1rem;
+        }
+        .about h3 {
+          grid-row: 1;
+        }
+        .about img {
+          max-width: 450px;
+          grid-row: 2;
+          display: block;
+          box-sizing: border-box;
+          border: 2px solid var(--clr-neutral-dark);
+          box-shadow: clamp(8px, 1vw, 15px) clamp(8px, 1vw, 15px) 0 0
+            rgba(140, 174, 182, 0.85);
+          /* border-radius: 20%; */
+        }
+        .about-content {
+          grid-row: 2;
+          grid-column: 2;
+        }
+        .about > * {
+          padding-inline: 0.5rem;
         }
       }
     </style>
-    <div class="btn-container">
-      <a href="#" class="top-button">Top ↑</a>
-    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnContainer = document.querySelector(".btn-container");
+        const scrollToTopButton = document.querySelector(".top-button");
+
+        scrollToTopButton.addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth", // Use smooth scrolling behavior
+          });
+        });
+
+        window.addEventListener("scroll", function () {
+          if (window.scrollY > 100) {
+            btnContainer.style.opacity = "1";
+          } else {
+            btnContainer.style.opacity = "0";
+          }
+        });
+      });
+    </script>
   </body>
 </html>

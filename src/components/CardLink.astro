@@ -1,11 +1,26 @@
 ---
-const { href } = Astro.props;
+const { href, target, color } = Astro.props;
+
+const colorStyle =
+  color === "accent"
+    ? "var(--clr-accent-darker);"
+    : color === "secondary"
+    ? "var(--clr-secondary-darker);" // Change this to your secondary color
+    : "var(--clr-neutral-dark)"; // Default color or any other condition you want
 ---
 
-<a href={href} class="link"><slot /></a>
+<div>
+  <a href={href} class="link" target={target} style={{ color: colorStyle }}
+    ><slot /></a
+  >
+</div>
 
 <style>
   a {
-    text-decoration: underline;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  a:hover {
+    color: blue;
   }
 </style>

@@ -6,7 +6,7 @@ import { SITE_TITLE } from "../consts";
 <header>
   <nav>
     <h2>
-      <a href="/">
+      <a href="/" aria-label="Navigate to main page">
         <svg
           class="logo"
           width="50"
@@ -51,28 +51,31 @@ import { SITE_TITLE } from "../consts";
     </h2>
     <div class="internal-links">
       <HeaderLink href="/">Home</HeaderLink>
-      <HeaderLink href="/blog">Blog</HeaderLink>
-      <HeaderLink href="/about">About</HeaderLink>
+      <HeaderLink href="#projects">Projects</HeaderLink>
+      <HeaderLink href="#about-me">About</HeaderLink>
     </div>
-    <div class="social-links">hey</div>
+    <!-- <div class="social-links">hey</div> -->
   </nav>
 </header>
 <style>
   .logo {
-    --logo-size: clamp(40px, 4vw, 90px);
+    --logo-size: clamp(40px, 4vw, 5vh);
     height: var(--logo-size);
     width: var(--logo-size);
-    box-shadow: clamp(8px, 1vw, 15px) clamp(8px, 1vw, 15px) 0 0
+    box-shadow: clamp(8px, 1vw, 10px) clamp(8px, 1vw, 10px) 0 0
       rgba(140, 174, 182, 0.25);
   }
   header {
-    z-index: 4;
+    z-index: 9999;
     /* position: sticky; */
     top: 0;
     margin: 0;
     height: 65px;
     transition: 0.2s;
     height: var(--header-height);
+
+    max-width: 1450px;
+    margin: 0 auto;
   }
   nav {
     display: flex;
@@ -85,19 +88,10 @@ import { SITE_TITLE } from "../consts";
     border-bottom: 4px solid transparent;
     text-decoration: none;
   }
-  nav a.active {
-    text-decoration: none;
-    border-bottom-color: var(--accent);
-  }
-  .social-links,
-  .social-links a {
-    display: flex;
-  }
-  @media (max-width: 720px) {
-    .social-links {
-      display: none;
-    }
-  }
+  /* nav a.active { */
+  /*   text-decoration: none; */
+  /*   border-bottom-color: var(--accent); */
+  /* } */
 </style>
 
 <script>
