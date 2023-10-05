@@ -18,9 +18,9 @@ import { Image } from "astro:assets";
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body id="#top">
+  <body>
     <div class="btn-container">
-      <a href="#top" class="top-button">Top ↑</a>
+      <a href="#" class="top-button">Top ↑</a>
     </div>
     <Header title={SITE_TITLE} />
     <div>
@@ -536,15 +536,6 @@ import { Image } from "astro:assets";
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const btnContainer = document.querySelector(".btn-container");
-        const scrollToTopButton = document.querySelector(".top-button");
-
-        scrollToTopButton.addEventListener("click", function (event) {
-          event.preventDefault(); // Prevent default link behavior
-          window.scrollTo({
-            top: 0,
-            behavior: "smooth", // Use smooth scrolling behavior
-          });
-        });
 
         window.addEventListener("scroll", function () {
           if (window.scrollY > 100) {

@@ -121,26 +121,28 @@ import { SITE_TITLE } from "../consts";
 </style>
 
 <script>
-  let lastScrollTop = 0;
+  document.addEventListener("DOMContentLoaded", function () {
+    let lastScrollTop = 0;
 
-  window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    const scrollPoint = window.scrollY;
+    window.addEventListener("scroll", () => {
+      const header = document.querySelector("header");
+      const scrollPoint = window.scrollY;
 
-    if (scrollPoint > lastScrollTop) {
-      header.classList.add("hidden");
-      header.classList.remove("visible");
-    } else {
-      header.classList.remove("hidden");
-      header.classList.add("visible");
-
-      if (scrollPoint !== 0) {
-        header.classList.add("scrolled");
+      if (scrollPoint > lastScrollTop) {
+        header.classList.add("hidden");
+        header.classList.remove("visible");
       } else {
-        header.classList.remove("scrolled");
-      }
-    }
+        header.classList.remove("hidden");
+        header.classList.add("visible");
 
-    lastScrollTop = scrollPoint;
+        if (scrollPoint !== 0) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      }
+
+      lastScrollTop = scrollPoint;
+    });
   });
 </script>
